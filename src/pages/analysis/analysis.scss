@@ -1,0 +1,378 @@
+.analysis {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    overflow-y: auto;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--text-prominent);
+        margin: 0;
+    }
+
+    &__controls {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__control-group {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        label {
+            font-size: 1.4rem;
+            color: var(--text-general);
+        }
+
+        select {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border-normal);
+            border-radius: 4px;
+            background: var(--general-main-1);
+            color: var(--text-general);
+            font-size: 1.4rem;
+            cursor: pointer;
+
+            &:hover {
+                border-color: var(--border-hover);
+            }
+        }
+    }
+
+    &__status {
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-size: 1.3rem;
+        font-weight: 600;
+
+        &--connected {
+            background: rgb(76 175 80 / 10%);
+            color: #4caf50;
+            border: 1px solid rgb(76 175 80 / 30%);
+        }
+
+        &--disconnected {
+            background: rgb(244 67 54 / 10%);
+            color: #f44336;
+            border: 1px solid rgb(244 67 54 / 30%);
+        }
+
+        &--reconnecting {
+            background: rgb(255 152 0 / 10%);
+            color: #ff9800;
+            border: 1px solid rgb(255 152 0 / 30%);
+        }
+    }
+
+    &__price-display {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__price-card,
+    &__digit-card-main,
+    &__tick-card {
+        background: var(--general-section-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    &__price-label,
+    &__digit-label,
+    &__tick-label {
+        font-size: 1.3rem;
+        color: var(--text-less-prominent);
+        margin-bottom: 0.8rem;
+    }
+
+    &__price-value {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--text-prominent);
+    }
+
+    &__digit-value {
+        font-size: 3.6rem;
+        font-weight: 700;
+        color: var(--brand-blue);
+    }
+
+    &__tick-value {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--text-prominent);
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__stat-card {
+        background: var(--general-section-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    &__stat-label {
+        font-size: 1.3rem;
+        color: var(--text-less-prominent);
+        margin-bottom: 0.8rem;
+    }
+
+    &__stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-prominent);
+    }
+
+    &__stat-count {
+        font-size: 1.2rem;
+        color: var(--text-less-prominent);
+        margin-top: 0.4rem;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        @media (width <= 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__section-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--text-prominent);
+        margin-bottom: 1.5rem;
+    }
+
+    &__digit-frequencies {
+        background: var(--general-section-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 8px;
+        padding: 2rem;
+    }
+
+    &__digit-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+
+    &__digit-card {
+        background: var(--general-main-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 6px;
+        padding: 1rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__digit-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--brand-blue);
+        margin-bottom: 0.4rem;
+    }
+
+    &__digit-count {
+        font-size: 1.3rem;
+        color: var(--text-less-prominent);
+    }
+
+    &__digit-percentage {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text-prominent);
+        margin-top: 0.4rem;
+    }
+
+    &__digit-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--brand-blue), var(--brand-dark-blue));
+        transition: width 0.3s ease;
+    }
+
+    &__signals,
+    &__pro-signals {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__no-signals {
+        background: var(--general-section-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-less-prominent);
+        font-size: 1.4rem;
+    }
+
+    &__signal-card {
+        background: var(--general-section-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 8px;
+        padding: 1.5rem;
+
+        &--trade {
+            border-color: #4caf50;
+            background: linear-gradient(135deg, var(--general-section-1) 0%, rgb(76 175 80 / 5%) 100%);
+        }
+
+        &--wait {
+            border-color: #ff9800;
+            background: linear-gradient(135deg, var(--general-section-1) 0%, rgb(255 152 0 / 5%) 100%);
+        }
+
+        &--pro {
+            border-color: var(--brand-blue);
+            background: linear-gradient(135deg, var(--general-section-1) 0%, rgb(37 128 233 / 5%) 100%);
+        }
+    }
+
+    &__signal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__signal-type {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-general);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    &__signal-status {
+        font-size: 1.2rem;
+        font-weight: 700;
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        background: var(--general-main-1);
+        color: var(--text-prominent);
+    }
+
+    &__signal-probability {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--brand-blue);
+        margin-bottom: 1rem;
+    }
+
+    &__signal-recommendation {
+        font-size: 1.4rem;
+        color: var(--text-prominent);
+        margin-bottom: 0.8rem;
+        font-weight: 500;
+    }
+
+    &__signal-entry {
+        font-size: 1.3rem;
+        color: var(--text-less-prominent);
+        font-style: italic;
+    }
+
+    &__signal-target {
+        font-size: 1.3rem;
+        color: var(--brand-blue);
+        margin-top: 0.8rem;
+        font-weight: 600;
+    }
+
+    &__ai-prediction {
+        background: var(--general-section-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 8px;
+        padding: 2rem;
+    }
+
+    &__prediction-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__prediction-card {
+        background: var(--general-main-1);
+        border: 1px solid var(--border-normal);
+        border-radius: 6px;
+        padding: 1.5rem;
+        text-align: center;
+
+        &--top {
+            border-color: var(--brand-blue);
+            background: linear-gradient(135deg, var(--general-main-1) 0%, rgb(37 128 233 / 10%) 100%);
+        }
+    }
+
+    &__prediction-label {
+        font-size: 1.2rem;
+        color: var(--text-less-prominent);
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    &__prediction-digit {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--brand-blue);
+        margin-bottom: 0.4rem;
+    }
+
+    &__prediction-confidence {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text-prominent);
+    }
+
+    &__prediction-explanation {
+        font-size: 1.3rem;
+        color: var(--text-general);
+        line-height: 1.6;
+        padding: 1rem;
+        background: var(--general-main-1);
+        border-radius: 4px;
+        border-left: 3px solid var(--brand-blue);
+    }
+}

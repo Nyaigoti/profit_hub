@@ -1,0 +1,268 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* stylelint-disable-next-line scss/at-rule-no-unknown */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --background: oklch(99% 0.01 240deg);
+    --foreground: oklch(15% 0.02 240deg);
+    --card: oklch(100% 0 0deg);
+    --card-foreground: oklch(15% 0.02 240deg);
+    --popover: oklch(100% 0 0deg);
+    --popover-foreground: oklch(15% 0.02 240deg);
+    --primary: oklch(55% 0.22 250deg);
+    --primary-foreground: oklch(99% 0 0deg);
+    --secondary: oklch(95% 0.02 240deg);
+    --secondary-foreground: oklch(15% 0.02 240deg);
+    --muted: oklch(96% 0.01 240deg);
+    --muted-foreground: oklch(45% 0.02 240deg);
+    --accent: oklch(94% 0.03 240deg);
+    --accent-foreground: oklch(15% 0.02 240deg);
+    --destructive: oklch(57.7% 0.245 27.325deg);
+    --destructive-foreground: oklch(98.5% 0 0deg);
+    --border: oklch(88% 0.02 240deg);
+    --input: oklch(88% 0.02 240deg);
+    --ring: oklch(55% 0.22 250deg);
+    --chart-1: oklch(64.6% 0.222 41.116deg);
+    --chart-2: oklch(60% 0.118 184.704deg);
+    --chart-3: oklch(39.8% 0.07 227.392deg);
+    --chart-4: oklch(82.8% 0.189 84.429deg);
+    --chart-5: oklch(76.9% 0.188 70.08deg);
+    --radius: 0.625rem;
+    --sidebar: oklch(99% 0.01 240deg);
+    --sidebar-foreground: oklch(15% 0.02 240deg);
+    --sidebar-primary: oklch(55% 0.22 250deg);
+    --sidebar-primary-foreground: oklch(99% 0 0deg);
+    --sidebar-accent: oklch(95% 0.02 240deg);
+    --sidebar-accent-foreground: oklch(15% 0.02 240deg);
+    --sidebar-border: oklch(88% 0.02 240deg);
+    --sidebar-ring: oklch(55% 0.22 250deg);
+}
+
+.dark {
+    --background: oklch(14.5% 0 0deg);
+    --foreground: oklch(98.5% 0 0deg);
+    --card: oklch(14.5% 0 0deg);
+    --card-foreground: oklch(98.5% 0 0deg);
+    --popover: oklch(14.5% 0 0deg);
+    --popover-foreground: oklch(98.5% 0 0deg);
+    --primary: oklch(98.5% 0 0deg);
+    --primary-foreground: oklch(20.5% 0 0deg);
+    --secondary: oklch(26.9% 0 0deg);
+    --secondary-foreground: oklch(98.5% 0 0deg);
+    --muted: oklch(26.9% 0 0deg);
+    --muted-foreground: oklch(70.8% 0 0deg);
+    --accent: oklch(26.9% 0 0deg);
+    --accent-foreground: oklch(98.5% 0 0deg);
+    --destructive: oklch(39.6% 0.141 25.723deg);
+    --destructive-foreground: oklch(98.5% 0 0deg);
+    --border: oklch(26.9% 0 0deg);
+    --input: oklch(26.9% 0 0deg);
+    --ring: oklch(43.9% 0 0deg);
+    --chart-1: oklch(48.8% 0.243 264.376deg);
+    --chart-2: oklch(69.6% 0.17 162.48deg);
+    --chart-3: oklch(76.9% 0.188 70.08deg);
+    --chart-4: oklch(62.7% 0.265 303.9deg);
+    --chart-5: oklch(64.5% 0.246 16.439deg);
+    --sidebar: oklch(20.5% 0 0deg);
+    --sidebar-foreground: oklch(98.5% 0 0deg);
+    --sidebar-primary: oklch(48.8% 0.243 264.376deg);
+    --sidebar-primary-foreground: oklch(98.5% 0 0deg);
+    --sidebar-accent: oklch(26.9% 0 0deg);
+    --sidebar-accent-foreground: oklch(98.5% 0 0deg);
+    --sidebar-border: oklch(26.9% 0 0deg);
+    --sidebar-ring: oklch(43.9% 0 0deg);
+}
+
+/* stylelint-disable-next-line scss/at-rule-no-unknown */
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Added vibrant digit color utilities */
+@layer utilities {
+    .digit-0 {
+        @apply bg-gradient-to-br from-pink-500 to-pink-600;
+    }
+
+    .digit-1 {
+        @apply bg-gradient-to-br from-blue-500 to-blue-600;
+    }
+
+    .digit-2 {
+        @apply bg-gradient-to-br from-cyan-500 to-cyan-600;
+    }
+
+    .digit-3 {
+        @apply bg-gradient-to-br from-pink-400 to-pink-500;
+    }
+
+    .digit-4 {
+        @apply bg-gradient-to-br from-cyan-400 to-cyan-500;
+    }
+
+    .digit-5 {
+        @apply bg-gradient-to-br from-blue-400 to-blue-500;
+    }
+
+    .digit-6 {
+        @apply bg-gradient-to-br from-red-500 to-red-600;
+    }
+
+    .digit-7 {
+        @apply bg-gradient-to-br from-pink-500 to-pink-600;
+    }
+
+    .digit-8 {
+        @apply bg-gradient-to-br from-orange-500 to-orange-600;
+    }
+
+    .digit-9 {
+        @apply bg-gradient-to-br from-blue-500 to-purple-600;
+    }
+}
+
+/* Added animated edge glow keyframes */
+@keyframes edge-glow-green {
+    0%,
+    100% {
+        box-shadow:
+            inset 0 0 30px rgb(34 197 94 / 40%),
+            inset 0 0 60px rgb(59 130 246 / 10%);
+    }
+
+    50% {
+        box-shadow:
+            inset 0 0 30px rgb(59 130 246 / 40%),
+            inset 0 0 60px rgb(34 197 94 / 10%);
+    }
+}
+
+@keyframes edge-glow-blue {
+    0%,
+    100% {
+        box-shadow:
+            inset 0 0 30px rgb(59 130 246 / 40%),
+            inset 0 0 60px rgb(34 197 94 / 10%);
+    }
+
+    50% {
+        box-shadow:
+            inset 0 0 30px rgb(34 197 94 / 40%),
+            inset 0 0 60px rgb(59 130 246 / 10%);
+    }
+}
+
+/* Added smooth pulse animation for percentage updates */
+@keyframes pulse-slow {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Added animation classes */
+@layer utilities {
+    .animate-edge-glow-green {
+        animation: edge-glow-green 3s ease-in-out infinite;
+    }
+
+    .animate-edge-glow-blue {
+        animation: edge-glow-blue 3s ease-in-out infinite;
+    }
+
+    .animate-pulse-slow {
+        animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* Added glassmorphism and frost UI effects for light mode */
+    .glass-light {
+        background: rgb(255 255 255 / 70%);
+        backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgb(209 213 219 / 30%);
+    }
+
+    .frost-light {
+        background: linear-gradient(135deg, rgb(255 255 255 / 80%), rgb(255 255 255 / 60%));
+        backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 8px 32px 0 rgb(31 38 135 / 15%);
+    }
+
+    /* Added soft outer glow for WAIT status */
+    .glow-blue-soft {
+        box-shadow:
+            0 0 30px rgb(59 130 246 / 40%),
+            0 0 60px rgb(59 130 246 / 20%);
+    }
+
+    .animate-glow-blue {
+        animation: glow-blue 2s ease-in-out infinite;
+    }
+}
+
+@keyframes glow-blue {
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px rgb(59 130 246 / 30%),
+            0 0 40px rgb(59 130 246 / 15%);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgb(59 130 246 / 50%),
+            0 0 60px rgb(59 130 246 / 25%);
+    }
+}

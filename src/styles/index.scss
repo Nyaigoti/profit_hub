@@ -1,0 +1,237 @@
+@use 'components/shared/styles/themes' as *;
+@import 'https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese';
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--general-main-1);
+}
+
+.icon-general-fill-path {
+    path {
+        fill: var(--text-general);
+    }
+}
+
+.icon-general-fill-g-path {
+    g {
+        path {
+            fill: var(--text-general);
+        }
+    }
+}
+
+@import 'tailwindcss';
+
+/* stylelint-disable-next-line scss/at-rule-no-unknown */
+@theme {
+    --color-background: oklch(8% 0 0deg);
+    --color-foreground: oklch(95% 0.01 60deg);
+    --color-card: oklch(12% 0.01 200deg);
+    --color-card-foreground: oklch(95% 0.01 60deg);
+    --color-popover: oklch(12% 0.01 200deg);
+    --color-popover-foreground: oklch(95% 0.01 60deg);
+    --color-primary: oklch(60% 0.25 250deg);
+    --color-primary-foreground: oklch(99% 0 0deg);
+    --color-secondary: oklch(50% 0.2 200deg);
+    --color-secondary-foreground: oklch(99% 0 0deg);
+    --color-muted: oklch(25% 0.05 200deg);
+    --color-muted-foreground: oklch(65% 0.05 200deg);
+    --color-accent: oklch(65% 0.2 280deg);
+    --color-accent-foreground: oklch(99% 0 0deg);
+    --color-destructive: oklch(60% 0.25 25deg);
+    --color-destructive-foreground: oklch(99% 0 0deg);
+    --color-border: oklch(20% 0.05 200deg);
+    --color-input: oklch(15% 0.05 200deg);
+    --color-ring: oklch(60% 0.25 250deg);
+    --color-chart-1: oklch(65% 0.22 280deg);
+    --color-chart-2: oklch(60% 0.18 200deg);
+    --color-chart-3: oklch(55% 0.2 170deg);
+    --color-chart-4: oklch(70% 0.2 40deg);
+    --color-chart-5: oklch(65% 0.18 300deg);
+    --radius: 0.75rem;
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Custom Premium Design System */
+@layer utilities {
+    /* Neon Colors */
+    :root {
+        --neon-blue: #3b82f6;
+        --neon-cyan: #06b6d4;
+        --neon-purple: #a855f7;
+        --neon-green: #22c55e;
+        --neon-red: #ef4444;
+        --neon-orange: #f97316;
+        --glass-bg-dark: rgb(15 23 42 / 60%);
+        --glass-border: rgb(255 255 255 / 10%);
+    }
+
+    /* Glassmorphism */
+    .glass-panel {
+        background: var(--glass-bg-dark);
+        backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgb(0 0 0 / 37%);
+    }
+
+    .glass-card {
+        background: linear-gradient(145deg, rgb(30 41 59 / 70%), rgb(15 23 42 / 60%));
+        backdrop-filter: blur(10px);
+        border: 1px solid rgb(255 255 255 / 5%);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+        border-color: rgb(255 255 255 / 15%);
+        box-shadow: 0 0 20px rgb(59 130 246 / 15%);
+        transform: translateY(-2px);
+    }
+
+    /* Neon Text */
+    .neon-text-blue {
+        color: var(--neon-blue);
+        text-shadow: 0 0 10px rgb(59 130 246 / 50%);
+    }
+
+    .neon-text-cyan {
+        color: var(--neon-cyan);
+        text-shadow: 0 0 10px rgb(6 182 212 / 50%);
+    }
+
+    .neon-text-purple {
+        color: var(--neon-purple);
+        text-shadow: 0 0 10px rgb(168 85 247 / 50%);
+    }
+
+    .neon-text-green {
+        color: var(--neon-green);
+        text-shadow: 0 0 10px rgb(34 197 94 / 50%);
+    }
+
+    .neon-text-red {
+        color: var(--neon-red);
+        text-shadow: 0 0 10px rgb(239 68 68 / 50%);
+    }
+
+    .neon-text-orange {
+        color: var(--neon-orange);
+        text-shadow: 0 0 10px rgb(249 115 22 / 50%);
+    }
+
+    /* Neon Borders */
+    .neon-border-blue {
+        border-color: var(--neon-blue);
+        box-shadow:
+            0 0 10px rgb(59 130 246 / 30%),
+            inset 0 0 10px rgb(59 130 246 / 10%);
+    }
+
+    .neon-border-green {
+        border-color: var(--neon-green);
+        box-shadow:
+            0 0 10px rgb(34 197 94 / 30%),
+            inset 0 0 10px rgb(34 197 94 / 10%);
+    }
+
+    .neon-border-red {
+        border-color: var(--neon-red);
+        box-shadow:
+            0 0 10px rgb(239 68 68 / 30%),
+            inset 0 0 10px rgb(239 68 68 / 10%);
+    }
+
+    /* Backgrounds */
+    .bg-deep-space {
+        background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    }
+
+    .bg-grid-pattern {
+        background-size: 40px 40px;
+        background-image:
+            linear-gradient(to right, rgb(255 255 255 / 5%) 1px, transparent 1px),
+            linear-gradient(to bottom, rgb(255 255 255 / 5%) 1px, transparent 1px);
+    }
+
+    /* Animations */
+    .animate-pulse-slow {
+        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Legacy Utilities (kept for compatibility but can be refactored) */
+@layer utilities {
+    .glow-soft-blue {
+        box-shadow: 0 0 20px rgb(59 130 246 / 30%);
+    }
+
+    .glow-soft-cyan {
+        box-shadow: 0 0 20px rgb(34 211 238 / 30%);
+    }
+
+    .glow-soft-purple {
+        box-shadow: 0 0 20px rgb(168 85 247 / 30%);
+    }
+
+    .digit-0 {
+        @apply bg-gradient-to-br from-pink-500 to-pink-600;
+    }
+
+    .digit-1 {
+        @apply bg-gradient-to-br from-blue-500 to-blue-600;
+    }
+
+    .digit-2 {
+        @apply bg-gradient-to-br from-cyan-500 to-cyan-600;
+    }
+
+    .digit-3 {
+        @apply bg-gradient-to-br from-pink-400 to-pink-500;
+    }
+
+    .digit-4 {
+        @apply bg-gradient-to-br from-cyan-400 to-cyan-500;
+    }
+
+    .digit-5 {
+        @apply bg-gradient-to-br from-blue-400 to-blue-500;
+    }
+
+    .digit-6 {
+        @apply bg-gradient-to-br from-red-500 to-red-600;
+    }
+
+    .digit-7 {
+        @apply bg-gradient-to-br from-pink-500 to-pink-600;
+    }
+
+    .digit-8 {
+        @apply bg-gradient-to-br from-orange-500 to-orange-600;
+    }
+
+    .digit-9 {
+        @apply bg-gradient-to-br from-blue-500 to-purple-600;
+    }
+}
