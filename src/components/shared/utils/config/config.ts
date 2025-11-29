@@ -24,6 +24,7 @@ export const APP_IDS = {
     PRODUCTION: 65555,
     PRODUCTION_BE: 65556,
     PRODUCTION_ME: 65557,
+    PROFIT_HUB: 113960,
 };
 
 export const livechat_license_id = 12049137;
@@ -37,6 +38,8 @@ export const domain_app_ids = {
     'dbot.deriv.com': APP_IDS.PRODUCTION,
     'dbot.deriv.be': APP_IDS.PRODUCTION_BE,
     'dbot.deriv.me': APP_IDS.PRODUCTION_ME,
+    'profithub.vercel.app': APP_IDS.PROFIT_HUB,
+    'profit-k5ifcv90i-nyaigotis-projects.vercel.app': APP_IDS.PROFIT_HUB,
 };
 
 export const getCurrentProductionDomain = () =>
@@ -144,9 +147,8 @@ export const checkAndSetEndpointFromUrl = () => {
             const params = url_params.toString();
             const hash = location.hash;
 
-            location.href = `${location.protocol}//${location.hostname}${location.pathname}${
-                params ? `?${params}` : ''
-            }${hash || ''}`;
+            location.href = `${location.protocol}//${location.hostname}${location.pathname}${params ? `?${params}` : ''
+                }${hash || ''}`;
 
             return true;
         }
@@ -166,7 +168,7 @@ export const generateOAuthURL = () => {
     try {
         const environment = getCurrentEnvironment();
         const hostname = brandConfig?.brand_hostname?.[environment];
-        
+
         if (!hostname) {
             console.error('No hostname found in brand config');
             return `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=en&brand=deriv`;
@@ -175,7 +177,7 @@ export const generateOAuthURL = () => {
         // Use the Vercel URL
         const app_id = getAppId();
         const redirect_uri = `https://${hostname}/callback`;
-        
+
         return `https://oauth.deriv.com/oauth2/authorize?app_id=${app_id}&redirect_uri=${redirect_uri}&l=en&brand=deriv`;
     } catch (error) {
         console.error('Error generating OAuth URL:', error);
