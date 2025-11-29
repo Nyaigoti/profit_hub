@@ -11,7 +11,7 @@
  */
 
 export const DERIV_APP_ID = 113960;
-export const DERIV_REDIRECT_URL = 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app';
+export const DERIV_REDIRECT_URL = 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback';
 
 export const DERIV_CONFIG = {
     APP_ID: DERIV_APP_ID,
