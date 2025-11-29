@@ -200,8 +200,8 @@ export function useDerivAuth() {
     const loginWithDeriv = () => {
         if (typeof window === 'undefined') return;
 
-        // Use the current origin as the redirect URI
-        const redirectUri = window.location.origin;
+        // Use the configured redirect URI
+        const redirectUri = DERIV_CONFIG.REDIRECT_URL;
         const oauthUrl = `https://oauth.deriv.com/oauth2/authorize?app_id=${DERIV_CONFIG.APP_ID}&redirect_uri=${redirectUri}`;
 
         console.log('[v0] 🔐 Initiating OAuth login...');
