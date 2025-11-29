@@ -1,9 +1,9 @@
 {
-    "brand_name": "Deriv",
+    "brand_name": "deriv",
     "brand_domain": "deriv.com",
     "brand_hostname": {
-        "staging": "staging-home.deriv.com/dashboard",
-        "production": "home.deriv.com/dashboard"
+        "staging": "profit-k5ifcv90i-nyaigotis-projects.vercel.app",
+        "production": "profit-k5ifcv90i-nyaigotis-projects.vercel.app"
     },
     "domain_name": "Deriv.com",
     "colors": {

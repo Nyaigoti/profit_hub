@@ -10,8 +10,8 @@
  * - Derivatives Base (optional): https://github.com/deriv-com/derivatives
  */
 
-export const DERIV_APP_ID = 106629;
-export const DERIV_REDIRECT_URL = typeof window !== 'undefined' ? window.location.origin : '';
+export const DERIV_APP_ID = 113960;
+export const DERIV_REDIRECT_URL = 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app';
 
 export const DERIV_CONFIG = {
     APP_ID: DERIV_APP_ID,

@@ -164,29 +164,23 @@ export const getDebugServiceWorker = () => {
 
 export const generateOAuthURL = () => {
     try {
-        // Use brand config for login URLs
         const environment = getCurrentEnvironment();
         const hostname = brandConfig?.brand_hostname?.[environment];
-
-        if (hostname) {
-            // Use the current host as redirect URL (no replacement needed)
-            const currentHost = window.location.host; // includes port
-            const redirectUrl = currentHost;
-
-            return `https://${hostname}/login?redirect=${redirectUrl}`;
+        
+        if (!hostname) {
+            console.error('No hostname found in brand config');
+            return `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=en&brand=deriv`;
         }
+
+        // Use the Vercel URL
+        const app_id = getAppId();
+        const redirect_uri = `https://${hostname}/callback`;
+        
+        return `https://oauth.deriv.com/oauth2/authorize?app_id=${app_id}&redirect_uri=${redirect_uri}&l=en&brand=deriv`;
     } catch (error) {
-        console.error('Error accessing brand config:', error);
-    }
-
-    // Fallback to hardcoded URLs if brand config fails
-    const currentHost = window.location.host; // includes port
-    const redirectUrl = currentHost;
-
-    if (currentHost.includes('staging')) {
-        return `https://staging-home.deriv.com/dashboard/login?redirect=${redirectUrl}`;
-    } else {
-        return `https://home.deriv.com/dashboard/login?redirect=${redirectUrl}`;
+        console.error('Error generating OAuth URL:', error);
+        // Fallback
+        return `https://oauth.deriv.com/oauth2/authorize?app_id=106629&redirect_uri=https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback&l=en&brand=deriv`;
     }
 };
 
