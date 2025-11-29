@@ -1,6 +1,6 @@
 {
     "brand_name": "deriv",
-    "brand_domain": "deriv.com",
+    "brand_domain": "profithub.vercel.app/",
     "brand_hostname": {
         "staging": "profit-k5ifcv90i-nyaigotis-projects.vercel.app",
         "production": "profit-k5ifcv90i-nyaigotis-projects.vercel.app"
