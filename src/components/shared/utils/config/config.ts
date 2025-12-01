@@ -103,6 +103,10 @@ export const getAppId = () => {
     const config_app_id = window.localStorage.getItem('config.app_id');
     const current_domain = getCurrentProductionDomain() ?? '';
 
+    if (domain_app_ids[current_domain as keyof typeof domain_app_ids]) {
+        return domain_app_ids[current_domain as keyof typeof domain_app_ids];
+    }
+
     if (config_app_id) {
         app_id = config_app_id;
     } else if (isStaging()) {
