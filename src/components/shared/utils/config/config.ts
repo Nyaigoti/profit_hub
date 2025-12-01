@@ -187,24 +187,5 @@ export const generateOAuthURL = () => {
 };
 
 export const generateSignupURL = () => {
-    try {
-        // Use brand config for signup URLs
-        const environment = getCurrentEnvironment();
-        const hostname = brandConfig?.brand_hostname?.[environment];
-
-        if (hostname) {
-            return `https://${hostname}/signup`;
-        }
-    } catch (error) {
-        console.error('Error accessing brand config:', error);
-    }
-
-    // Fallback to hardcoded URLs if brand config fails
-    const currentHost = window.location.host; // includes port
-
-    if (currentHost.includes('staging')) {
-        return 'https://staging-home.deriv.com/dashboard/signup';
-    } else {
-        return 'https://home.deriv.com/dashboard/signup';
-    }
+    return generateOAuthURL();
 };
