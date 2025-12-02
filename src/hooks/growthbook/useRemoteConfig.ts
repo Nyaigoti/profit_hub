@@ -3,14 +3,7 @@ import { ObjectUtils } from '@deriv-com/utils';
 import initData from './remote_config.json';
 
 const remoteConfigQuery = async function () {
-    const REMOTE_CONFIG_URL =
-        process.env.REMOTE_CONFIG_URL ?? 'https://app-config-prod.firebaseio.com/remote_config/deriv-app.json';
-
-    // Check if URL is properly configured - always use fallback instead of throwing
-    if (!REMOTE_CONFIG_URL || REMOTE_CONFIG_URL === '' || REMOTE_CONFIG_URL === 'undefined') {
-        console.warn('Remote Config URL not properly configured, using default fallback');
-        return initData;
-    }
+    const REMOTE_CONFIG_URL = 'https://app-config-prod.firebaseio.com/remote_config/deriv-app.json';
 
     const response = await fetch(REMOTE_CONFIG_URL);
     if (!response.ok) {

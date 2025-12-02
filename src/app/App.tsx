@@ -18,9 +18,9 @@ import './app-root.scss';
 const Layout = lazy(() => import('../components/layout'));
 const AppRoot = lazy(() => import('./app-root'));
 
-const { TRANSLATIONS_CDN_URL, R2_PROJECT_NAME, CROWDIN_BRANCH_NAME } = process.env;
+const { TRANSLATIONS_CDN_URL } = process.env;
 const i18nInstance = initializeI18n({
-    cdnUrl: `${TRANSLATIONS_CDN_URL || 'https://translations.deriv.com'}/${R2_PROJECT_NAME}/${CROWDIN_BRANCH_NAME}`,
+    cdnUrl: `${TRANSLATIONS_CDN_URL || 'https://translations.deriv.com'}/deriv-app/production`,
 });
 
 // Component to handle language URL parameter

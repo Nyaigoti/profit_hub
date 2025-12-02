@@ -18,8 +18,8 @@ export const useFirebaseCountriesConfig = () => {
             setIsLoading(true);
 
             try {
-                const STAGING_URL = process.env.REMOTE_CONFIG_URL_STAGING || REMOTE_CONFIG_URL_STAGING;
-                const PRODUCTION_URL = process.env.REMOTE_CONFIG_URL_PROD || REMOTE_CONFIG_URL_PRODUCTION;
+                const STAGING_URL = REMOTE_CONFIG_URL_STAGING;
+                const PRODUCTION_URL = REMOTE_CONFIG_URL_PRODUCTION;
 
                 const REMOTE_CONFIG_URL = process.env.APP_ENV === 'production' ? PRODUCTION_URL : STAGING_URL;
 
