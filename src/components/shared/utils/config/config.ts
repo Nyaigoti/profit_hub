@@ -24,7 +24,7 @@ export const APP_IDS = {
     PRODUCTION: 65555,
     PRODUCTION_BE: 65556,
     PRODUCTION_ME: 65557,
-    PROFIT_HUB: 113960,
+    PROFIT_HUB: parseInt(process.env.VITE_DERIV_APP_ID || '113960', 10),
 };
 
 export const livechat_license_id = 12049137;
@@ -175,13 +175,14 @@ export const generateOAuthURL = () => {
 
         // Use the Vercel URL
         const app_id = getAppId();
-        const redirect_uri = `https://${hostname}/callback`;
+        const redirect_uri = process.env.VITE_DERIV_REDIRECT_URL || 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback';
+        const oauth_origin = process.env.OAUTH_ORIGIN || 'https://oauth.deriv.com/oauth2/authorize';
 
-        return `https://oauth.deriv.com/oauth2/authorize?app_id=${app_id}&redirect_uri=${redirect_uri}&l=en&brand=deriv`;
+        return `${oauth_origin}?app_id=${app_id}&redirect_uri=${redirect_uri}&l=en&brand=deriv`;
     } catch (error) {
         console.error('Error generating OAuth URL:', error);
         // Fallback
-        return `https://oauth.deriv.com/oauth2/authorize?app_id=106629&redirect_uri=https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback&l=en&brand=deriv`;
+        return `https://oauth.deriv.com/oauth2/authorize?app_id=${process.env.VITE_DERIV_APP_ID || 106629}&redirect_uri=${process.env.VITE_DERIV_REDIRECT_URL || 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback'}&l=en&brand=deriv`;
     }
 };
 

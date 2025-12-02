@@ -41,6 +41,11 @@ export default defineConfig({
                 RUDDERSTACK_KEY: JSON.stringify(process.env.RUDDERSTACK_KEY),
                 GROWTHBOOK_CLIENT_KEY: JSON.stringify(process.env.GROWTHBOOK_CLIENT_KEY),
                 GROWTHBOOK_DECRYPTION_KEY: JSON.stringify(process.env.GROWTHBOOK_DECRYPTION_KEY),
+                PROFIT_HUB_URL: JSON.stringify(process.env.PROFIT_HUB_URL),
+                OAUTH_ORIGIN: JSON.stringify(process.env.OAUTH_ORIGIN),
+                DERIV_APP_ID: JSON.stringify(process.env.DERIV_APP_ID),
+                VITE_DERIV_APP_ID: JSON.stringify(process.env.VITE_DERIV_APP_ID),
+                VITE_DERIV_REDIRECT_URL: JSON.stringify(process.env.VITE_DERIV_REDIRECT_URL),
             },
         },
     },
@@ -94,13 +99,13 @@ export default defineConfig({
         bundleAnalyze:
             process.env.BUNDLE_ANALYZE === 'true'
                 ? {
-                      analyzerMode: 'server',
-                      analyzerHost: 'localhost',
-                      analyzerPort: 8888,
-                      openAnalyzer: true,
-                      generateStatsFile: true,
-                      statsFilename: 'stats.json',
-                  }
+                    analyzerMode: 'server',
+                    analyzerHost: 'localhost',
+                    analyzerPort: 8888,
+                    openAnalyzer: true,
+                    generateStatsFile: true,
+                    statsFilename: 'stats.json',
+                }
                 : undefined,
     },
     tools: {
