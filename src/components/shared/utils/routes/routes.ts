@@ -35,6 +35,22 @@ const domains: Record<Service, DomainConfig> = {
             com: 'https://dtrader.deriv.com',
         },
     },
+    derivCom: {
+        staging: 'https://staging.deriv.com',
+        production: {
+            me: 'https://deriv.me',
+            be: 'https://deriv.be',
+            com: 'https://deriv.com',
+        },
+    },
+    derivHome: {
+        staging: 'https://staging-app.deriv.com',
+        production: {
+            me: 'https://app.deriv.me',
+            be: 'https://app.deriv.be',
+            com: 'https://app.deriv.com',
+        },
+    },
 };
 
 export const getDerivDomain = (service: Service): string => {
