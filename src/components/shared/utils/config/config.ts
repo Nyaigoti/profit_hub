@@ -32,12 +32,7 @@ export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7';
 
 export const domain_app_ids = {
     'master.bot-standalone.pages.dev': APP_IDS.TMP_STAGING,
-    'staging-dbot.deriv.com': APP_IDS.STAGING,
-    'staging-dbot.deriv.be': APP_IDS.STAGING_BE,
-    'staging-dbot.deriv.me': APP_IDS.STAGING_ME,
-    'dbot.deriv.com': APP_IDS.PRODUCTION,
-    'dbot.deriv.be': APP_IDS.PRODUCTION_BE,
-    'dbot.deriv.me': APP_IDS.PRODUCTION_ME,
+
     'profithub.vercel.app': APP_IDS.PROFIT_HUB,
     'profit-k5ifcv90i-nyaigotis-projects.vercel.app': APP_IDS.PROFIT_HUB,
 };
