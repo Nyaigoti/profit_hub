@@ -7,14 +7,6 @@ interface DomainConfig {
 }
 
 const domains: Record<Service, DomainConfig> = {
-    derivCom: {
-        staging: 'https://staging.deriv.com',
-        production: {
-            me: 'https://deriv.me',
-            be: 'https://deriv.be',
-            com: 'https://deriv.com',
-        },
-    },
     smartTrader: {
         staging: {
             me: 'https://staging-smarttrader.deriv.me',
@@ -33,14 +25,6 @@ const domains: Record<Service, DomainConfig> = {
             me: 'https://hub.deriv.me',
             be: 'https://hub.deriv.be',
             com: 'https://hub.deriv.com',
-        },
-    },
-    derivHome: {
-        staging: 'https://staging-home.deriv.com',
-        production: {
-            me: 'https://home.deriv.com', // No .me domain yet, using .com
-            be: 'https://home.deriv.com', // No .be domain yet, using .com
-            com: 'https://home.deriv.com',
         },
     },
     derivDtrader: {
@@ -62,9 +46,6 @@ export const getDerivDomain = (service: Service): string => {
     const serviceConfig = domains[service];
 
     // Handle development environment for derivHome and derivDtrader
-    if (service === 'derivHome' && isDev) {
-        return 'https://dev-home.deriv.com';
-    }
 
     if (service === 'derivDtrader' && isDev) {
         return 'https://dev-dtrader.deriv.com';

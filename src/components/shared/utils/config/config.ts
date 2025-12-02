@@ -175,14 +175,14 @@ export const generateOAuthURL = () => {
 
         // Use the Vercel URL
         const app_id = getAppId();
-        const redirect_uri = process.env.VITE_DERIV_REDIRECT_URL || 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback';
+        const redirect_uri = process.env.VITE_DERIV_REDIRECT_URL;
         const oauth_origin = process.env.OAUTH_ORIGIN || 'https://oauth.deriv.com/oauth2/authorize';
 
         return `${oauth_origin}?app_id=${app_id}&redirect_uri=${redirect_uri}&l=en&brand=deriv`;
     } catch (error) {
         console.error('Error generating OAuth URL:', error);
         // Fallback
-        return `https://oauth.deriv.com/oauth2/authorize?app_id=${process.env.VITE_DERIV_APP_ID || 106629}&redirect_uri=${process.env.VITE_DERIV_REDIRECT_URL || 'https://profit-k5ifcv90i-nyaigotis-projects.vercel.app/callback'}&l=en&brand=deriv`;
+        return `https://oauth.deriv.com/oauth2/authorize?app_id=${process.env.VITE_DERIV_APP_ID || 106629}&redirect_uri=${process.env.VITE_DERIV_REDIRECT_URL || 'https://profithub.vercel.app/callback'}&l=en&brand=deriv`;
     }
 };
 
