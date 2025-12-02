@@ -1,4 +1,3 @@
-import { initSurvicate } from '../public-path';
 import { lazy, Suspense } from 'react';
 import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
@@ -18,7 +17,7 @@ import './app-root.scss';
 const Layout = lazy(() => import('../components/layout'));
 const AppRoot = lazy(() => import('./app-root'));
 
-const i18nInstance = initializeI18n({ cdnUrl: undefined });
+const i18nInstance = initializeI18n({});
 
 // Component to handle language URL parameter
 const LanguageHandler = ({ children }: { children: React.ReactNode }) => {
@@ -87,7 +86,6 @@ function App() {
         // Use the invalid token handler hook to automatically retrigger OIDC authentication
         // when an invalid token is detected and the cookie logged state is true
 
-        initSurvicate();
         window?.dataLayer?.push({ event: 'page_load' });
         return () => {
             // Clean up the invalid token handler when the component unmounts
