@@ -3,7 +3,7 @@ import { ObjectUtils } from '@deriv-com/utils';
 import initData from './remote_config.json';
 
 const remoteConfigQuery = async function () {
-    const REMOTE_CONFIG_URL = 'https://app-config-prod.firebaseio.com/remote_config/deriv-app.json';
+    const REMOTE_CONFIG_URL = process.env.REMOTE_CONFIG_URL || '/remote_config.json';
 
     const response = await fetch(REMOTE_CONFIG_URL);
     if (!response.ok) {

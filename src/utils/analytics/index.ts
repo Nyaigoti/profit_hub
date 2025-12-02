@@ -11,12 +11,33 @@ export const AnalyticsInitializer = async () => {
         const account_type = savedAccountType || 'demo';
 
         // Only try to fetch remote config if URL is properly configured
-        const hasValidRemoteConfigUrl = false; // Disabled as per user request
+        const hasValidRemoteConfigUrl =
+            process.env.REMOTE_CONFIG_URL &&
+            process.env.REMOTE_CONFIG_URL !== '' &&
+            process.env.REMOTE_CONFIG_URL !== 'undefined';
 
         let flags = FIREBASE_INIT_DATA; // Default fallback
 
         if (hasValidRemoteConfigUrl) {
-            // Unreachable code, but kept structure for minimal diff if needed later
+            try {
+                // Create abort controller for timeout
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+                const response = await fetch(process.env.REMOTE_CONFIG_URL!, {
+                    signal: controller.signal,
+                });
+
+                clearTimeout(timeoutId);
+
+                if (response.ok) {
+                    flags = await response.json();
+                } else {
+                    console.warn('Remote config fetch failed, using fallback data');
+                }
+            } catch (fetchError) {
+                console.warn('Remote config fetch error, using fallback data:', fetchError);
+            }
         } else {
             console.info('Remote config URL not configured, using default flags');
         }
