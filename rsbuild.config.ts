@@ -24,7 +24,6 @@ export default defineConfig({
         },
         define: {
             'process.env': {
-                TRANSLATIONS_CDN_URL: JSON.stringify(process.env.TRANSLATIONS_CDN_URL),
                 TRACKJS_TOKEN: JSON.stringify(process.env.TRACKJS_TOKEN),
                 APP_ENV: JSON.stringify(process.env.APP_ENV),
                 REF_NAME: JSON.stringify(process.env.REF_NAME),
